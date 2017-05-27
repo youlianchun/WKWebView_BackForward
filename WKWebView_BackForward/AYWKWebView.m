@@ -68,11 +68,12 @@
 -(void)addGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer {
     if (self.allowsBackNavigationGesturesSet && [gestureRecognizer isKindOfClass:[UIScreenEdgePanGestureRecognizer class]]) {
         UIScreenEdgePanGestureRecognizer *navigationGestures = (UIScreenEdgePanGestureRecognizer*)gestureRecognizer;
-        navigationGestures.enabled = NO;
         if (navigationGestures.edges == UIRectEdgeLeft) {
+            navigationGestures.enabled = self.backNavigationGestures.enabled;
             self.backNavigationGestures = navigationGestures;
         }
         if (navigationGestures.edges == UIRectEdgeRight) {
+            navigationGestures.enabled = self.forwardNavigationGestures.enabled;
             self.forwardNavigationGestures = navigationGestures;
         }
     }
