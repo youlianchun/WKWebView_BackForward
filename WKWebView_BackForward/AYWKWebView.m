@@ -50,7 +50,7 @@
 - (void)customIntitialization{
     if (!self.didInit) {
         self.didInit = YES;
-        [self _setAllowsBackForwardNavigationGestures:YES];
+        [self _allowsBackForwardNavigationGestures];
     }
 }
 
@@ -59,9 +59,9 @@
     self.forwardNavigationGestures = nil;
 }
 
--(void)_setAllowsBackForwardNavigationGestures:(BOOL)allowsBackForwardNavigationGestures {
+-(void)_allowsBackForwardNavigationGestures {
     self.allowsBackNavigationGesturesSet = YES;
-    [super setAllowsBackForwardNavigationGestures:allowsBackForwardNavigationGestures];
+    [super setAllowsBackForwardNavigationGestures:YES];
     self.allowsBackNavigationGesturesSet = NO;
 }
 
